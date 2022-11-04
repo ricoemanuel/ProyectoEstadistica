@@ -1,8 +1,10 @@
 
 //
 
-const Ruta=process.env.INIT_CWD.slice(0,64)+'\datos\\BD.xlsx'
+let Ruta=process.env.INIT_CWD
+Ruta=Ruta.substr(0,Ruta.length-19)+'\datos\\BD.xlsx'
 export const leer = () => {
+    
     const reader = require('xlsx')
     // Reading our test file
     const file = reader.readFile(Ruta)
@@ -21,7 +23,7 @@ export const leer = () => {
 export const edit = (dato, celda) => {
     var Excel = require('exceljs');
     var workbook = new Excel.Workbook();
-    workbook.xlsx.readFile(Ruta)
+    workbook.xlsx.readFile(Ruta)//Change file name here or give file path
         .then(function () {
             if (celda != undefined) {
                 try {
@@ -41,7 +43,7 @@ export const edit = (dato, celda) => {
 export const Delete = (fila) => {
     var Excel = require('exceljs');
     var workbook = new Excel.Workbook();
-    workbook.xlsx.readFile(Ruta)
+    workbook.xlsx.readFile(Ruta)//Change file name here or give file path
         .then(function () {
             if (fila != undefined) {
                 var worksheet = workbook.getWorksheet('Hoja1');
@@ -57,7 +59,7 @@ export const Delete = (fila) => {
 export const crear = (datos) => {
     var Excel = require('exceljs');
     var workbook = new Excel.Workbook();
-    workbook.xlsx.readFile(Ruta)
+    workbook.xlsx.readFile(Ruta)//Change file name here or give file path
         .then(function () {
             var worksheet = workbook.getWorksheet('Hoja1');
             let ultimo = worksheet.getCell("C1").value
