@@ -1,0 +1,13 @@
+@api=http://localhost:3000/sillas
+get {{api}}
+###
+post {{api}}
+Content-Type: application/json
+
+{
+    "clase": 0,
+    "estado": 1,
+    "precio": 50000,
+    "columna": "B",
+    "fila":"2"
+}
